@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 <body>
 
   <h1>Mehrwertsteuer-Rechner</h1>
-  <form onsubmit="VAT(); return false">
+  <form onsubmit="vat(); return false">
     <div class="container">
       <h4>Was soll berechnet werden?</h4>
       <div class="radio">
@@ -37,18 +37,18 @@
     <div class="container">
       <h4>Mehrwertsteuersatz</h4>
       <label for="inputValue">Nettobetrag (Preis ohne Mehrwertsteuer) in Euro%</label>
-      <input type="number" name="inputValue" id="inputValue" placeholder="Bitte gibt hier dem betrag ein..." required>
+      <input type="text" name="inputValue" id="inputValue" placeholder="Bitte gibt hier dem betrag ein..." required>
     </div>
     <input type="submit" name="Berechnen" id="Berechnen">
     <hr>
     <h3>Ergebnis</h3>
     <div class="container">
       <h4>Mehrwertsteuerbetrag</h4>
-      <p id="vatValue"><strong></strong></p>
+      <p id="vatValue"><strong>€</strong></p>
     </div>
     <div class="container">
-      <h4>Bruttobetrag (Endpreis)</h4>
-      <p id="totalValue"><strong></strong></p>
+      <h4 id="totalValueOrNettoTitle">Bruttobetrag (Endpreis)</h4>
+      <p id="totalValueOrNetto"><strong>€</strong></p>
     </div>
   </form>
 
