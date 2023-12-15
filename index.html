@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Mehrwertsteuer-Rechner</title>
+</head>
+
+<body>
+
+  <h1>Mehrwertsteuer-Rechner</h1>
+  <form onsubmit="VAT(); return false">
+    <div class="container">
+      <h4>Was soll berechnet werden?</h4>
+      <div class="radio">
+        <input type="radio" name="type" id="nettoBrutto" checked>
+        <label for="nettoBrutto">Mehrwertsteuer aufschlagen (Netto zu Brutto)</label>
+      </div>
+      <div class="radio"><input type="radio" name="type" id="bruttoNetto">
+        <label for="bruttoNetto">Mehrwertsteuer abziehen (Brutto zu Netto)</label>
+      </div>
+
+    </div>
+    <div class="container">
+      <h4>Mehrwertsteuersatz</h4>
+      <div class="radio"><input type="radio" name="value" id="vat19" checked>
+        <label for="vat19">19%</label>
+      </div>
+
+      <div class="radio"><input type="radio" name="value" id="vat7">
+        <label for="vat7">7%</label>
+      </div>
+
+    </div>
+    <div class="container">
+      <h4>Mehrwertsteuersatz</h4>
+      <label for="inputValue">Nettobetrag (Preis ohne Mehrwertsteuer) in Euro%</label>
+      <input type="number" name="inputValue" id="inputValue" placeholder="Bitte gibt hier dem betrag ein..." required>
+    </div>
+    <input type="submit" name="Berechnen" id="Berechnen">
+    <hr>
+    <h3>Ergebnis</h3>
+    <div class="container">
+      <h4>Mehrwertsteuerbetrag</h4>
+      <p id="vatValue"><strong></strong></p>
+    </div>
+    <div class="container">
+      <h4>Bruttobetrag (Endpreis)</h4>
+      <p id="totalValue"><strong></strong></p>
+    </div>
+  </form>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
