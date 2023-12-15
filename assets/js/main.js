@@ -1,28 +1,36 @@
-/*
 
-In diesem Projekt erstellst du eine Mehrwertsteuer-Rechner-App.
-In Deutschland gibt es zwei Mehrwertsteuersätze: 19 % und 7 %.
-Mit dieser App kannst du Netto zu Brutto oder Brutto zu Netto berechnen.
+let bruttoNetto = document.getElementById("bruttoNetto").checked
+let nettoBrutto = document.getElementById("nettoBrutto").checked
+let vatValue = document.getElementById("vatValue")
+let totalValueOrNettoTitle = document.getElementById("totalValueOrNettoTitle")
+let totalValueOrNetto = document.getElementById("totalValueOrNetto")
+let inputValueLabel = document.getElementById("inputValueLabel")
 
-Achtet darauf, wenn du auf einen der Radio-Buttons klickst (Netto zu Brutto || Brutto zu Netto), dass sich der Text in den Feldern anpasst. Schaue dir beide Vorschaubilder genau an, um die Änderungen zu erkennen.
 
-*/
+document.getElementById("nettoBrutto").addEventListener("change", () => {
+    totalValueOrNettoTitle.innerHTML = "Bruttobetrag (Endpreis)";
+    inputValueLabel.innerHTML = "Nettobetrag (Preis ohne Mehrwertsteuer) in Euro <span id='star'>*</span>"
+    ImportType = "nettoBrutto"
+})
+
+document.getElementById("bruttoNetto").addEventListener("change", () => {
+    console.log("bruttoNetto")
+    totalValueOrNettoTitle.innerHTML = "Nettobetrag"
+    inputValueLabel.innerHTML = "Bruttobetrag (Preis inklusive Mehrwertsteuer) in Euro <span id='star'>*</span>"
+    ImportType = "bruttoNetto"
+})
+
+
+
+
 
 const vat = () => {
     // alle notwendige variable deklariert
-    let nettoBrutto = document.getElementById("nettoBrutto").checked
-    let bruttoNetto = document.getElementById("bruttoNetto").checked
+
     let vat19 = document.getElementById("vat19").checked
     let vat7 = document.getElementById("vat7").checked
-    let vatValue = document.getElementById("vatValue")
-    let totalValueOrNettoTitle = document.getElementById("totalValueOrNettoTitle")
-    let totalValueOrNetto = document.getElementById("totalValueOrNetto")
     let inputValue = document.getElementById("inputValue").value
-    // text to number und , auf . coregieren
 
-    if (inputValue.includes(",")) {
-        inputValue = inputValue.replaceAll(",", ".")
-    }
     inputValue = Number(inputValue)
     // wenn netto to bruto und 19%
     if (nettoBrutto == true && vat19 == true) {
