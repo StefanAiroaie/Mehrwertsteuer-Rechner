@@ -21,31 +21,29 @@ const vat = () => {
     // text to number und , auf . coregieren
 
     if (inputValue.includes(",")) {
-        let newInputValue = inputValue.replaceAll(",", ".")
-        Number(newInputValue) = inputValue
-        console.log(inputValue);
+        inputValue = inputValue.replaceAll(",", ".")
     }
-    else
-        Number(inputValue)
-    console.log(inputValue);
-
-    // // switch case for auswahlen die radio butoons
-    // switch (inputValue !== 0) {
-    //     // wenn netto to bruto und 19%
-    //     case nettoBrutto == true, vat19 == true:
-    //         vatValue.innerHTML = (inputValue * 0.19).toFixed(2) + " €"
-    //         totalValueOrNetto.innerHTML = (inputValue * 1.19).toFixed(3) + " €"
-    //         break
-    //     // wenn netto to bruto und 7%
-    //     case nettoBrutto == true, vat7 == true:
-    //         vatValue.innerHTML = Math.round(inputValue * 0.07).toFixed(2) + " €"
-    //         totalValueOrNetto.innerHTML = Math.round(inputValue * 1.07).to + " €"
-    //         break
-
-    //     default:
-    //         totalValueOrNettoTitle.innerHTML = "hei nu merge"
-    //         break
-    // }
+    inputValue = Number(inputValue)
+    // wenn netto to bruto und 19%
+    if (nettoBrutto == true && vat19 == true) {
+        vatValue.innerHTML = (inputValue * 0.19).toFixed(2) + " €"
+        totalValueOrNetto.innerHTML = (inputValue * 1.19).toFixed(3) + " €"
+    }
+    // wenn netto to bruto und 7%
+    else if (nettoBrutto == true && vat7 == true) {
+        vatValue.innerHTML = Math.round(inputValue * 0.07).toFixed(2) + " €"
+        totalValueOrNetto.innerHTML = Math.round(inputValue * 1.07).toFixed(2) + " €"
+    }
+    // wenn bruto to netto und 19%
+    else if (nettoBrutto == false && vat19 == true) {
+        vatValue.innerHTML = (inputValue - inputValue / (1 + 19 / 100)).toFixed(2) + " €"
+        totalValueOrNetto.innerHTML = (inputValue / (1 + 19 / 100)).toFixed(2) + " €"
+    }
+    // wenn bruto to netto und 7%
+    else if (nettoBrutto == false && vat7 == true) {
+        vatValue.innerHTML = (inputValue - inputValue / (1 + 7 / 100)).toFixed(2) + " €"
+        totalValueOrNetto.innerHTML = (inputValue / (1 + 7 / 100)).toFixed(2) + " €"
+    }
 }
 
 
